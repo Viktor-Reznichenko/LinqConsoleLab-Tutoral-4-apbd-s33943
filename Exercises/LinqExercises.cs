@@ -67,6 +67,9 @@ public sealed class LinqExercises
         {
             return res;
         }
+        
+        return ["Students don't exist"];
+
         throw NotImplemented(nameof(Task03_StudentsSortedAlphabetically));
     }
 
@@ -108,6 +111,12 @@ public sealed class LinqExercises
     /// </summary>
     public IEnumerable<string> Task05_IsThereAnyInactiveEnrollment()
     {
+        bool exists = UniversityData.Enrollments.Any(e => e.IsActive == false);
+        if (exists)
+        {
+            return ["yes"];
+        }
+        return ["no"];
         throw NotImplemented(nameof(Task05_IsThereAnyInactiveEnrollment));
     }
 
