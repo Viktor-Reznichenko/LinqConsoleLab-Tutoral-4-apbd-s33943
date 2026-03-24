@@ -16,6 +16,13 @@ public sealed class LinqExercises
     /// </summary>
     public IEnumerable<string> Task01_StudentsFromWarsaw()
     {
+        var res = UniversityData.Students.Where(s => s.City.Equals("Warsaw")).Select(s => $"{s.IndexNumber}, {s.FirstName}, {s.LastName}, {s.City}");
+        if (res != null)
+        {
+            return res;
+        }
+
+        return ["Students don't exist"];
         throw NotImplemented(nameof(Task01_StudentsFromWarsaw));
     }
 
@@ -30,6 +37,13 @@ public sealed class LinqExercises
     /// </summary>
     public IEnumerable<string> Task02_StudentEmailAddresses()
     {
+        var res = UniversityData.Students.Select(s => $"{s.Email}");
+        if (res != null)
+        {
+            return res;
+        }
+
+        return ["Emails do not exist"];
         throw NotImplemented(nameof(Task02_StudentEmailAddresses));
     }
 
@@ -45,6 +59,14 @@ public sealed class LinqExercises
     /// </summary>
     public IEnumerable<string> Task03_StudentsSortedAlphabetically()
     {
+        var res = UniversityData.Students
+            .OrderBy(s => s.LastName)
+            .ThenBy(s => s.FirstName)
+            .Select(s => $"{s.IndexNumber}, {s.FirstName}, {s.LastName}");        
+        if (res != null)
+        {
+            return res;
+        }
         throw NotImplemented(nameof(Task03_StudentsSortedAlphabetically));
     }
 
@@ -60,6 +82,15 @@ public sealed class LinqExercises
     /// </summary>
     public IEnumerable<string> Task04_FirstAnalyticsCourse()
     {
+        var res = UniversityData.Courses.Where(e => e.Category.Equals("Analytics")).Select(e => new{e.Title, e.StartDate}).FirstOrDefault();
+        if (res != null)
+        {
+            return [$"{res.Title}, {res.StartDate}"];
+        }
+
+        return ["Course doesn't exist"];
+        
+        /// <summary>
         throw NotImplemented(nameof(Task04_FirstAnalyticsCourse));
     }
 
