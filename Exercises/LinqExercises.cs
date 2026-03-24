@@ -111,8 +111,8 @@ public sealed class LinqExercises
     /// </summary>
     public IEnumerable<string> Task05_IsThereAnyInactiveEnrollment()
     {
-        bool exists = UniversityData.Enrollments.Any(e => e.IsActive == false);
-        if (exists)
+        bool rec = UniversityData.Enrollments.Any(e => e.IsActive == false);
+        if (rec)
         {
             return ["yes"];
         }
@@ -132,6 +132,10 @@ public sealed class LinqExercises
     /// </summary>
     public IEnumerable<string> Task06_DoAllLecturersHaveDepartment()
     {
+        //pic
+
+       
+        
         throw NotImplemented(nameof(Task06_DoAllLecturersHaveDepartment));
     }
 
