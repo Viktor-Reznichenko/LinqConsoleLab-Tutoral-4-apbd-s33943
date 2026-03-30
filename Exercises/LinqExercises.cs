@@ -231,6 +231,12 @@ public sealed class LinqExercises
     /// </summary>
     public IEnumerable<string> Task10_SecondPageOfCourses()
     {
+
+        var res = UniversityData.Courses.OrderBy(c => c.Title).Skip(2).Take(2).Select(c => $"{c.Title}, {c.Category}");
+        if (res != null)
+        {
+            return res;
+        }
         throw NotImplemented(nameof(Task10_SecondPageOfCourses));
     }
 
