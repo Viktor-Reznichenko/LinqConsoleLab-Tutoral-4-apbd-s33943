@@ -207,6 +207,14 @@ public sealed class LinqExercises
     /// </summary>
     public IEnumerable<string> Task09_ThreeNewestEnrollments()
     {
+        var res = UniversityData.Enrollments.OrderByDescending(e => e.EnrollmentDate).Take(3).Select(e => 
+            $"{e.EnrollmentDate:yyyy-MM-dd}, {e.StudentId}, {e.CourseId}");
+
+        if (res != null)
+        {
+            return res;
+        }
+
         throw NotImplemented(nameof(Task09_ThreeNewestEnrollments));
     }
 
