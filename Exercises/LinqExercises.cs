@@ -411,6 +411,13 @@ public sealed class LinqExercises
     /// </summary>
     public IEnumerable<string> Challenge01_StudentsWithMoreThanOneActiveCourse()
     {
+        var res =
+            UniversityData.Students.Join(UniversityData.Enrollments, s => s.Id, e => e.StudentId, (s, e) => new { s.FirstName, s.LastName, e.IsActive }).Where(x => x.IsActive).GroupBy(x => new { x.FirstName, x.LastName }).Where(g => g.Count() > 1).Select(g => $"{g.Key.FirstName}, {g.Key.LastName}, {g.Count()}");
+        
+        if (res != null)
+        {
+            return res;
+        }
         throw NotImplemented(nameof(Challenge01_StudentsWithMoreThanOneActiveCourse));
     }
 
@@ -446,6 +453,12 @@ public sealed class LinqExercises
     /// </summary>
     public IEnumerable<string> Challenge03_LecturersAndAverageGradeAcrossTheirCourses()
     {
+        var res =
+            UniversityData.Lecturers.GroupJoin(UniversityData.Courses, l => l.Id, c => c.LecturerId, (l, courses) => new { Lecturer = l, Courses = courses }).SelectMany(lc => lc.Courses.DefaultIfEmpty(), (lc, course) => new { lc.Lecturer, Course = course }).GroupJoin(UniversityData.Enrollments, lc => lc.Course?.Id, e => e.CourseId, (lc, enrollments) => new { lc.Lecturer, Enrollments = enrollments }).SelectMany(lec => lec.Enrollments.DefaultIfEmpty(), (le, enrollment) => new { le.Lecturer, Enrollment = enrollment }).Where(x => x.Enrollment?.FinalGrade != null).GroupBy(x => new { x.Lecturer.FirstName, x.Lecturer.LastName }).Select(g => $"{g.Key.FirstName}, {g.Key.LastName}, {g.Average(x => x.Enrollment.FinalGrade)}");
+        if (res != null)
+        {
+            return res;
+        }
         throw NotImplemented(nameof(Challenge03_LecturersAndAverageGradeAcrossTheirCourses));
     }
 
@@ -464,6 +477,12 @@ public sealed class LinqExercises
     /// </summary>
     public IEnumerable<string> Challenge04_CitiesAndActiveEnrollmentCounts()
     {
+        var res =
+            UniversityData.Students.Join(UniversityData.Enrollments, s => s.Id, e => e.StudentId, (s, e) => new { s.City, e.IsActive }).Where(x => x.IsActive).GroupBy(x => x.City).OrderByDescending(g => g.Count()).Select(g => $"{g.Key}, {g.Count()}");
+        if (res != null)
+        {
+            return res;
+        }
         throw NotImplemented(nameof(Challenge04_CitiesAndActiveEnrollmentCounts));
     }
 
