@@ -318,6 +318,14 @@ public sealed class LinqExercises
     /// </summary>
     public IEnumerable<string> Task13_GroupEnrollmentsByCourse()
     {
+         
+        var res =
+            UniversityData.Enrollments.Join(UniversityData.Courses, e => e.CourseId, c => c.Id, (e, c) => new { c.Title }).GroupBy(x => x.Title).Select(g => $"{g.Key}, {g.Count()}");
+        
+        if (res != null)
+        {
+            return res;
+        }
         throw NotImplemented(nameof(Task13_GroupEnrollmentsByCourse));
     }
 
