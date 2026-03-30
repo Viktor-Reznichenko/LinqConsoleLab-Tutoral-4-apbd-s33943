@@ -252,6 +252,13 @@ public sealed class LinqExercises
     /// </summary>
     public IEnumerable<string> Task11_JoinStudentsWithEnrollments()
     {
+        var res =
+            UniversityData.Students.Join(UniversityData.Enrollments, s => s.Id, e => e.StudentId, (s, e) => $"{s.FirstName}, {s.LastName}, {e.EnrollmentDate:yyyy-MM-dd}");
+        
+        if (res != null)
+        {
+            return res;
+        }
         throw NotImplemented(nameof(Task11_JoinStudentsWithEnrollments));
     }
 
