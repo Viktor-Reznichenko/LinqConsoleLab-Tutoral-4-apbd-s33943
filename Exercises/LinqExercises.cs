@@ -388,6 +388,11 @@ public sealed class LinqExercises
     /// </summary>
     public IEnumerable<string> Task16_HighestGradePerStudent()
     {
+        var res = UniversityData.Students.Join(UniversityData.Enrollments, s => s.Id, e => e.StudentId, (s, e) => new { s.FirstName, s.LastName, e.FinalGrade }).Where(x => x.FinalGrade != null).GroupBy(x => new { x.FirstName, x.LastName }).Select(g => $"{g.Key.FirstName}, {g.Key.LastName}, {g.Max(x => x.FinalGrade)}");
+        if (res != null)
+        {
+            return res;
+        }
         throw NotImplemented(nameof(Task16_HighestGradePerStudent));
     }
 
