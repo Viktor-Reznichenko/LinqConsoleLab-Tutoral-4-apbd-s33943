@@ -132,8 +132,20 @@ public sealed class LinqExercises
     /// </summary>
     public IEnumerable<string> Task06_DoAllLecturersHaveDepartment()
     {
-        //pic
+        int a =UniversityData.Lecturers.Count(e => !string.IsNullOrEmpty(e.Department));
+        int b = UniversityData.Lecturers.Count;
 
+        bool con = a == b;
+
+        if (con)
+        {
+            return ["1"];
+        }
+
+        if (!con)
+        {
+            return ["0"];
+        }
        
         
         throw NotImplemented(nameof(Task06_DoAllLecturersHaveDepartment));
@@ -226,6 +238,11 @@ public sealed class LinqExercises
     /// </summary>
     public IEnumerable<string> Task12_StudentCoursePairs()
     {
+    //    var method = UniversityData.Enrollments.Join(UniversityData.Students, e => e.StudentId, s => s.Id, (e, s) => new { e, s }
+    //    ).Join(UniversityData.Courses, e => e.e.CourseId, c => c.Id,
+    //        (e, c) => new { e.s.FirstName, e.s.LastName, c.Title });
+    //    return $"{method}";
+        
         throw NotImplemented(nameof(Task12_StudentCoursePairs));
     }
 
