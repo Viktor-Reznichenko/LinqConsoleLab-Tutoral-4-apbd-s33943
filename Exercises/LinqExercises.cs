@@ -185,12 +185,12 @@ public sealed class LinqExercises
     /// </summary>
     public IEnumerable<string> Task08_DistinctStudentCities()
     {
-        var res = UniversityData.Students.Select(s => s.City).Distinct();
+        var res = UniversityData.Students.Select(s => $"{s.City}").Distinct();
         
         if (res != null)
         {
 
-            return [$"{res}"];
+            return res;
         } 
         throw NotImplemented(nameof(Task08_DistinctStudentCities));
     }
