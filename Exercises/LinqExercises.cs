@@ -162,6 +162,15 @@ public sealed class LinqExercises
     /// </summary>
     public IEnumerable<string> Task07_CountActiveEnrollments()
     {
+        
+        var s = UniversityData.Enrollments.Count(e => e.IsActive);
+
+        if (s != null)
+        {
+
+            return [$"{s}"];
+        }
+
         throw NotImplemented(nameof(Task07_CountActiveEnrollments));
     }
 
