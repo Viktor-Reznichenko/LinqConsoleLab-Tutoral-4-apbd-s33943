@@ -366,6 +366,11 @@ public sealed class LinqExercises
     /// </summary>
     public IEnumerable<string> Task15_LecturersAndCourseCounts()
     {
+        var res = UniversityData.Lecturers.GroupJoin(UniversityData.Courses, l => l.Id, c => c.LecturerId, (l, courses) => new { l.FirstName, l.LastName, CourseCount = courses.Count() }).Select(x => $"{x.FirstName}, {x.LastName}, {x.CourseCount}");
+        if (res != null)
+        {
+            return res;
+        }
         throw NotImplemented(nameof(Task15_LecturersAndCourseCounts));
     }
 
