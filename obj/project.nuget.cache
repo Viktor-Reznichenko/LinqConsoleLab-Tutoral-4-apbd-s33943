@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "7qX+Cq6xBMQ=",
+  "dgSpecHash": "PK+dk076UBM=",
   "success": true,
-  "projectFilePath": "C:\\Users\\s33943\\Downloads\\LinqConsoleLab.EN\\LinqConsoleLab.EN\\LinqConsoleLab.EN.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\Віктор\\Desktop\\LinqConsoleLab-Tutoral-4-apbd-s33943\\LinqConsoleLab.EN.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Віктор\\.nuget\\packages\\microsoft.netcore.app.ref\\9.0.14\\microsoft.netcore.app.ref.9.0.14.nupkg.sha512",
+    "C:\\Users\\Віктор\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\9.0.14\\microsoft.windowsdesktop.app.ref.9.0.14.nupkg.sha512",
+    "C:\\Users\\Віктор\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\9.0.14\\microsoft.aspnetcore.app.ref.9.0.14.nupkg.sha512",
+    "C:\\Users\\Віктор\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\9.0.14\\microsoft.netcore.app.host.win-x64.9.0.14.nupkg.sha512"
+  ],
   "logs": []
 }
